@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Implicit Intents</string>
+    <string name="open_website_button">Button</string>
+    <string name="edittext_uri">http://mangatengu.com</string>
+    <string name="location_edittext">Medine</string>
+    <string name="open_location_button">Open Location</string>
+    <string name="share_edittext">S P A C E   T R I P   ! !</string>
+    <string name="share_button">Share This Text</string>
+    <string name="unhandled_Intent">Can\'t handle this!</string>
+    <string name="geoSearchQuery">geo:0,0?q=</string>
+    <string name="mime_text">text/plain</string>
+    <string name="share_with_header">Share this text on:</string>
+</resources>
