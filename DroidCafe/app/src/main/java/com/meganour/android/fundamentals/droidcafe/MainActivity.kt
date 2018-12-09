@@ -13,6 +13,12 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    companion object {
+        val EXTRA_ORDER = "extra.main.order"
+    }
+
+    private var order: String? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -30,37 +36,51 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
-
     fun orderDonut(view: View) {
-        toastIt(getString(R.string.donut_order_message))
+        order = toastIt(getString(R.string.donut_order_message))
     }
 
     fun orderIcecreamSandwitch(view: View) {
-        toastIt(getString(R.string.ice_cream_order_message))
+        order = toastIt(getString(R.string.ice_cream_order_message))
     }
 
     fun orderFroyo(view: View) {
-        toastIt(getString(R.string.froyo_order_message))
+        order = toastIt(getString(R.string.froyo_order_message))
     }
 
-    fun toastIt(message: String) {
-        Toast.makeText(applicationContext,
+    fun toastIt(message: String): String {
+        Toast.makeText(
+            applicationContext,
             message,
-            Toast.LENGTH_SHORT)
+            Toast.LENGTH_SHORT
+        )
             .show()
+        return message
     }
 
     fun order(view: View) {
-        intent = Intent(this, OrderActivity::class.java)
-        startActivity(intent)
+        order?.let {
+            intent = Intent(this, OrderActivity::class.java)
+            intent.putExtra(EXTRA_ORDER, order)
+            startActivity(intent)
+        }
     }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            R.id.action_order -> {
+                toastIt(getString(R.string.order_action))
+                order?.let {
+                    intent = Intent(this, OrderActivity::class.java)
+                    intent.putExtra(EXTRA_ORDER, order)
+                    startActivity(intent)
+                }
+            }
+            R.id.action_status -> toastIt(getString(R.string.status_action))
+            R.id.action_favorite -> toastIt(getString(R.string.favorite_action))
+            R.id.action_contact -> toastIt(getString(R.string.contact_action))
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 }

@@ -2,8 +2,23 @@
       xmlns:app="http://schemas.android.com/apk/res-auto"
       xmlns:tools="http://schemas.android.com/tools"
       tools:context="com.meganour.android.fundamentals.droidcafe.MainActivity">
-    <item android:id="@+id/action_settings"
-          android:title="@string/action_settings"
-          android:orderInCategory="100"
+    <item android:id="@+id/action_status"
+          android:title="@string/action_status"
+          android:orderInCategory="20"
+          android:icon="@drawable/ic_status_info"
+          app:showAsAction="always"/>
+    <item android:id="@+id/action_contact"
+          android:title="@string/contact_title"
+          android:orderInCategory="40"
           app:showAsAction="never"/>
+    <item android:id="@+id/action_order"
+          android:title="@string/order_title"
+          android:orderInCategory="10"
+          android:icon="@drawable/ic_shopping_cart"
+          app:showAsAction="always"/>
+    <item android:id="@+id/action_favorite"
+          android:title="@string/favorite_title"
+          android:orderInCategory="30"
+          android:icon="@drawable/ic_favorite"
+          app:showAsAction="ifRoom"/>
 </menu>
