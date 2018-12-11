@@ -32,4 +32,7 @@
         Suspendisse potenti. Nullam sit amet sapien eget arcu commodo auctor. Nam molestie ac magna id porttitor. Vivamus facilisis sem faucibus, vulputate dui eu, viverra urna. Integer a malesuada metus. Ut euismod nulla ac diam faucibus, vestibulum gravida mi volutpat. Donec laoreet ex sapien, non tempus magna ultricies pretium. Mauris eget aliquet justo. Donec risus ex, blandit ac varius ut, finibus sed sem. Nullam pharetra, velit pulvinar commodo dapibus, urna nulla iaculis odio, eu porta metus felis at tortor. Nunc augue velit, interdum sed purus nec, convallis aliquet nulla. Morbi porttitor id nisi at ultrices. Praesent fringilla dolor eu magna pellentesque, vitae sodales neque commodo. Nunc eu tincidunt purus.
 
         Quisque nisi eros, vehicula ac nisl eu, finibus faucibus ante. Donec consectetur tincidunt libero, et rhoncus sapien. Phasellus vulputate justo eros, ut consequat est laoreet consequat. Aliquam ac metus ut metus mattis ornare non ac risus. Aliquam consectetur magna ac interdum vulputate. Proin quis lacus dignissim tortor condimentum rutrum at sit amet arcu. Fusce egestas ex quis fringilla suscipit. Etiam sagittis consectetur enim, ac egestas eros molestie at.</string>
+    <string name="action_edit">edit</string>
+    <string name="action_share">share</string>
+    <string name="action_delete">delete</string>
 </resources>

@@ -83,4 +83,8 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+    override fun onContextItemSelected(item: MenuItem?): Boolean {
+        return super.onContextItemSelected(item)
+    }
+
 }
