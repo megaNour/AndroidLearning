@@ -33,5 +33,6 @@ captures/
 
 **/\.idea/
 **/gradle/
+**/gradlew.bat
 
 android-fundamentals-starter-apps-v2
