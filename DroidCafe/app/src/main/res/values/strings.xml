@@ -28,6 +28,7 @@
     <string name="status_action">You selected status action</string>
     <string name="favorite_action">You selected favorite action</string>
     <string name="contact_action">You selected contact action</string>
+    <string name="order_activity_title">Order Activity</string>
     <string-array name="labels_array">
         <item>Home</item>
         <item>Work</item>
