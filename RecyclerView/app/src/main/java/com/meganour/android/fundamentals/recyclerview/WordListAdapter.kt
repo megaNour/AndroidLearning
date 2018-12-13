@@ -2,7 +2,6 @@ package com.meganour.android.fundamentals.recyclerview
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import java.util.*
@@ -11,7 +10,19 @@ import android.widget.TextView
 
 class WordListAdapter
     (val mContext: Context, val mWordList: LinkedList<String>) :
-    RecyclerView.Adapter<WordListAdapter.WordViewHolder>() {
+    RecyclerView.Adapter<WordListAdapter.WordViewHolder>()
+    , View.OnClickListener{
+
+    private val positionMap : MutableMap<View, WordViewHolder> =  HashMap()
+
+    override fun onClick(v: View?) {
+        val layoutPosition = positionMap.get(v)?.layoutPosition
+        val textView = v as TextView
+        layoutPosition?.let {
+            mWordList.set(it, "Clicked " + textView.text)
+        }
+        notifyDataSetChanged()
+    }
 
     val mInflater = LayoutInflater.from(mContext)
 
@@ -26,22 +37,18 @@ class WordListAdapter
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordListAdapter.WordViewHolder {
         val mItemView = mInflater.inflate(R.layout.wordlist_item, parent, false)
-        return WordViewHolder(mItemView, this)
+        val wordViewHolder = WordViewHolder(mItemView, this)
+        return wordViewHolder
     }
 
-    inner class WordViewHolder(viewItemView: View, adapter: WordListAdapter) : RecyclerView.ViewHolder(viewItemView),
-        View.OnClickListener {
+    inner class WordViewHolder(itemView: View, val adapter: WordListAdapter) : RecyclerView.ViewHolder(itemView)
+    {
 
-        val wordItemView: TextView = itemView.findViewById(R.id.word);
-        val mAdapter = adapter
+        val wordItemView: TextView = itemView.findViewById(R.id.word)
 
         init{
-            wordItemView.setOnClickListener(this)
-        }
-
-        override fun onClick(v: View?) {
-            mWordList.set(layoutPosition, "Clicked " + wordItemView.text)
-            mAdapter.notifyDataSetChanged()
+            positionMap.put(wordItemView, this)
+            wordItemView.setOnClickListener(adapter)
         }
     }
 

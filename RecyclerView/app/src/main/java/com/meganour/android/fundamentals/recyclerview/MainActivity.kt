@@ -28,8 +28,8 @@ class MainActivity : AppCompatActivity() {
         fab.setOnClickListener { view ->
             val listSize = mWordList.size
             mWordList.addLast("Added " + mWordList.size)
-            Snackbar.make(view, "Added a new word !", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+//            Snackbar.make(view, "Added a new word !", Snackbar.LENGTH_LONG)
+//                .setAction("Action", null).show()
             mAdapter.notifyItemInserted(listSize)
             mRecyclerView.smoothScrollToPosition(listSize)
         }
